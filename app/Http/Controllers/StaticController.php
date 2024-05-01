@@ -17,6 +17,8 @@ class StaticController extends Controller
                   'title' => 'المقررات الدراسية',
                   'id' => 'Lectures'
                 ],
+                ['title' => 'التخصصات الدراسية',
+                'id' => 'classes'],
                 [
                   'title' => 'المحاضرات',
                   'id' => 'TeachingStaff'

@@ -23,7 +23,6 @@
         <link href="{{ asset('css/bladewind.css') }}" rel="stylesheet">
   
 <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
 
@@ -35,12 +34,11 @@
 
 <div class="container">
   <div class="img-logo">
-    <h1><img src="/images/logo.png" alt="Description of the image">
+    <h1><img src="/images/myLogo.png" alt="Description of the image">
     <h1>قيم الجامعة </h1>
   </div>
   </h1>
   @isset($titlesAndIds)
-
  <div id='ratings-container'>
   @foreach ($titlesAndIds as $index => $titleAndValues)
   <div class="rating-section">
@@ -48,10 +46,9 @@
 
     @foreach ($titleAndValues['values'] as $value)
     <div class="rating-item" :id="'rating-item-{{ $index }}-{{ $value['id'] }}'">
-      <div class="rating-title">{{ $value['title'] }}</div>
-
-      <div><x-bladewind::rating
-      
+      <div class="rating-title">{{ $value['title'] }}</div> 
+      <div>
+        <x-bladewind::rating
         rating='0'
         stars='5'
         color="yellow"
@@ -70,7 +67,6 @@
         function saveRating(elementName) {
             // Find the hidden input associated with the rating component
             let ratingInput = document.querySelector(`.rating-value-${elementName}`);
-        
             // Toggle the rating value between 0 (not rated) and 1 (rated)
             let currentValue = ratingInput.value;
             let newValue = currentValue === '0' ? '1' : '0';
